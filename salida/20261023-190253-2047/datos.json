@@ -1,0 +1,573 @@
+{
+ "avisos": [],
+ "datos": {
+  "obra": "Vivienda unifamiliar – EJEMPLO (reemplazar)",
+  "ubicacion": "Mendoza – Capital",
+  "comitente": null,
+  "proyectista": null,
+  "fecha": "10/10/2026",
+  "revision": "00",
+  "clase_H": "H-25",
+  "gHA": 25,
+  "gHS": 22,
+  "cc_vc": 40,
+  "cc_l": 20,
+  "cc_z": 70,
+  "acero_long": "ADN 420",
+  "acero_est": "ADN 420",
+  "Es": 200000,
+  "s_adm": 150,
+  "Df": 1,
+  "g_suelo": 17,
+  "g_mamp": 17,
+  "mamp_tipo": "Ladrillos cerámicos macizos",
+  "mortero": "N"
+ },
+ "cargas": {
+  "T": {
+   "capas": [
+    {
+     "desc": "Cubierta impermeabilizante con base de tela o cartón asfáltico de siete capas",
+     "g": 0,
+     "q": 0.1,
+     "e": null,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    },
+    {
+     "desc": "Contrapiso de cemento, arena y cascote",
+     "g": 18,
+     "q": 0,
+     "e": 0.08,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    },
+    {
+     "desc": "Mortero de cemento pórtland y arena",
+     "g": 21,
+     "q": 0,
+     "e": 0.02,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    },
+    {
+     "desc": "Yeso con metal desplegado",
+     "g": 0,
+     "q": 0.18,
+     "e": null,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    }
+   ],
+   "correa": {
+    "desc": null,
+    "kNm": 0,
+    "sep": null,
+    "alpha": 0
+   }
+  },
+  "E": {
+   "capas": [
+    {
+     "desc": "Baldosa cerámica, 12 mm de espesor",
+     "g": 23,
+     "q": 0.28,
+     "e": null,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    },
+    {
+     "desc": "Contrapiso de cemento, arena y cascote",
+     "g": 18,
+     "q": 0,
+     "e": 0.08,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    },
+    {
+     "desc": "Mortero de cemento pórtland y arena",
+     "g": 21,
+     "q": 0,
+     "e": 0.02,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    },
+    {
+     "desc": "Yeso con metal desplegado",
+     "g": 0,
+     "q": 0.18,
+     "e": null,
+     "b": null,
+     "sep": null,
+     "alpha": 0
+    }
+   ]
+  },
+  "Lr_T": 1,
+  "L_E": 2,
+  "L_T": 0,
+  "Lr_E": 0,
+  "fL": 0.5,
+  "h_est": 0.12,
+  "desc_Lr_T": "Azoteas y terrazas inaccesibles",
+  "desc_L_E": "Usos Residenciales (casa habitación, departamentos): viviendas para 1 y 2 familias - todas las áreas excepto balcones",
+  "muros": [
+   {
+    "desc": "Mampostería con revoque o completa, mortero a la cal o cemento: Ladrillo hueco cerámico portante, % huecos menor que 60",
+    "g": 12,
+    "e": 0.18,
+    "h": 2.6
+   }
+  ]
+ },
+ "losas": [
+  {
+   "id": "L1",
+   "tipo": "Losa maciza en una dirección",
+   "apoyo": "Simplemente apoyado",
+   "L": 3,
+   "h": 15,
+   "nivel": "TECHO",
+   "esquema": "Simplemente apoyada",
+   "phi_t": 10,
+   "s_t": 15,
+   "phi_a": null,
+   "s_a": null,
+   "phi_r": 8,
+   "s_r": 15
+  },
+  {
+   "id": "L2",
+   "tipo": "Losa maciza en una dirección",
+   "apoyo": "Un extremo continuo",
+   "L": 3.2,
+   "h": 14,
+   "nivel": "ENTREPISO",
+   "esquema": "Continua 2 tramos",
+   "phi_t": 10,
+   "s_t": 15,
+   "phi_a": 10,
+   "s_a": 15,
+   "phi_r": 8,
+   "s_r": 15
+  },
+  {
+   "id": "L3",
+   "tipo": "Losa maciza en una dirección",
+   "apoyo": "Voladizo",
+   "L": 1.2,
+   "h": 12,
+   "nivel": "TECHO",
+   "esquema": "Voladizo",
+   "phi_t": null,
+   "s_t": null,
+   "phi_a": 10,
+   "s_a": 15,
+   "phi_r": 8,
+   "s_r": 15
+  }
+ ],
+ "vigas": [
+  {
+   "id": "V1",
+   "cond": "Un extremo continuo",
+   "L": 3.5,
+   "h": 40,
+   "esquema": "Continua 2 tramos – tramo extremo",
+   "bw": 20,
+   "phi_e": 8,
+   "R_losas": 37.477120000000006,
+   "D_adic": 5.6160000000000005,
+   "L_adic": 0,
+   "flex_apoyo": {
+    "n": 3,
+    "phi": 16
+   },
+   "flex_tramo": {
+    "n": 3,
+    "phi": 14
+   },
+   "ramas": 2,
+   "sep": 15
+  },
+  {
+   "id": "V2",
+   "cond": "Simplemente apoyado",
+   "L": 3,
+   "h": 40,
+   "esquema": "Simplemente apoyada",
+   "bw": 20,
+   "phi_e": 8,
+   "R_losas": 13.002000000000002,
+   "D_adic": 0,
+   "L_adic": 0,
+   "flex_apoyo": {
+    "n": null,
+    "phi": null
+   },
+   "flex_tramo": {
+    "n": 3,
+    "phi": 12
+   },
+   "ramas": 2,
+   "sep": 15
+  }
+ ],
+ "modo_viguetas": "Servicio",
+ "viguetas": [
+  {
+   "id": "VP1",
+   "nivel": "ENTREPISO",
+   "serie": "Serie 3a",
+   "L": 4,
+   "sep": 0.7,
+   "pp": 2.5
+  },
+  {
+   "id": "VP2",
+   "nivel": "TECHO",
+   "serie": "Serie 2a",
+   "L": 3.5,
+   "sep": 0.7,
+   "pp": 2.5
+  }
+ ],
+ "correas": [
+  {
+   "id": "C1",
+   "nivel": "TECHO",
+   "seccion": "Pino Laminado 4\" x 9\" (9 x 22,2 cm)",
+   "b": 0.09,
+   "h": 0.222,
+   "w": 0.11988,
+   "L": 3,
+   "sep": 0.6,
+   "alpha": 15,
+   "E": 11200,
+   "Fb": 6.3,
+   "Fv": 0.7,
+   "x_flecha": 300
+  }
+ ],
+ "columnas": [
+  {
+   "id": "C1",
+   "b": 25,
+   "h": 25,
+   "lu": 2.7,
+   "A_T": 9,
+   "A_E": 0,
+   "R_vigas": 60,
+   "Pu_sup": 0,
+   "Mu": 15,
+   "k": 1,
+   "arriostrado": "SI",
+   "m1m2": -0.5,
+   "n_tot": 4,
+   "n_cara": 2,
+   "phi": 16,
+   "phi_e": 6,
+   "s_est": 15
+  },
+  {
+   "id": "C2",
+   "b": 30,
+   "h": 30,
+   "lu": 2.7,
+   "A_T": 4,
+   "A_E": 4,
+   "R_vigas": 80,
+   "Pu_sup": 0,
+   "Mu": 25,
+   "k": 1,
+   "arriostrado": "SI",
+   "m1m2": -0.5,
+   "n_tot": 6,
+   "n_cara": 2,
+   "phi": 16,
+   "phi_e": 6,
+   "s_est": 20
+  },
+  {
+   "id": "C3",
+   "b": 25,
+   "h": 40,
+   "lu": 2.7,
+   "A_T": 6,
+   "A_E": 6,
+   "R_vigas": 100,
+   "Pu_sup": 0,
+   "Mu": 40,
+   "k": 1,
+   "arriostrado": "SI",
+   "m1m2": -0.5,
+   "n_tot": 6,
+   "n_cara": 3,
+   "phi": 16,
+   "phi_e": 8,
+   "s_est": 20
+  }
+ ],
+ "sismo1": {
+  "zona": 4,
+  "tipo_esp": 2,
+  "Na": 1,
+  "Nv": 1.2,
+  "grupo": "Grupo B",
+  "sistema": "8 - Encadenada simple (ladrillo macizo)",
+  "A": 0,
+  "Ar": 1,
+  "H": 2.9,
+  "sist_T": "Otros sistemas (mampostería, tabiques de H°A°, etc.)",
+  "T_calc": null,
+  "niveles": [
+   {
+    "nombre": "Nivel 1 (techo en vivienda de 1 planta)",
+    "hk": 2.9,
+    "A": 92,
+    "tipo": "TECHO",
+    "h_losa": 15,
+    "destino": "Azoteas y techos inaccesibles",
+    "W_otros": 20
+   },
+   {
+    "nombre": "Nivel 2",
+    "hk": null,
+    "A": null,
+    "tipo": null,
+    "h_losa": null,
+    "destino": null,
+    "W_otros": null
+   },
+   {
+    "nombre": "Nivel 3",
+    "hk": null,
+    "A": null,
+    "tipo": null,
+    "h_losa": null,
+    "destino": null,
+    "W_otros": null
+   }
+  ],
+  "muros": [
+   {
+    "desc": "Muros de mampostería de planta baja",
+    "piso": 1,
+    "long": 43,
+    "esp": 0.18,
+    "alt": 2.6
+   }
+  ],
+  "nivel_sel": 1
+ },
+ "sismo2": {
+  "irregularidad": "Media (5 %)",
+  "Lx": 8,
+  "Ly": 12,
+  "cm": [
+   {
+    "desc": "Cuerpo principal",
+    "A": 80,
+    "x": 4,
+    "y": 5
+   },
+   {
+    "desc": "Galería / alero",
+    "A": 16,
+    "x": 4,
+    "y": 11
+   }
+  ],
+  "elementos": [
+   {
+    "id": "MX1",
+    "dir": "X",
+    "tipo": "Muro de mampostería",
+    "e": 0.18,
+    "L": 8,
+    "h": 2.6,
+    "pos": 0,
+    "R_manual": null
+   },
+   {
+    "id": "MX2",
+    "dir": "X",
+    "tipo": "Muro de mampostería",
+    "e": 0.18,
+    "L": 3,
+    "h": 2.6,
+    "pos": 5,
+    "R_manual": null
+   },
+   {
+    "id": "MX3",
+    "dir": "X",
+    "tipo": "Muro de mampostería",
+    "e": 0.18,
+    "L": 8,
+    "h": 2.6,
+    "pos": 10,
+    "R_manual": null
+   },
+   {
+    "id": "MY1",
+    "dir": "Y",
+    "tipo": "Muro de mampostería",
+    "e": 0.18,
+    "L": 10,
+    "h": 2.6,
+    "pos": 0,
+    "R_manual": null
+   },
+   {
+    "id": "MY2",
+    "dir": "Y",
+    "tipo": "Muro de mampostería",
+    "e": 0.18,
+    "L": 4,
+    "h": 2.6,
+    "pos": 4,
+    "R_manual": null
+   },
+   {
+    "id": "MY3",
+    "dir": "Y",
+    "tipo": "Muro de mampostería",
+    "e": 0.18,
+    "L": 10,
+    "h": 2.6,
+    "pos": 8,
+    "R_manual": null
+   }
+  ]
+ },
+ "muros": {
+  "ND": {
+   "MX1": 150,
+   "MX2": 60,
+   "MX3": 150,
+   "MY1": 200,
+   "MY2": 80,
+   "MY3": 200
+  },
+  "tabiques": {
+   "MX1": {
+    "Nu": null,
+    "phi": null,
+    "sep": null,
+    "cortinas": null
+   },
+   "MX2": {
+    "Nu": null,
+    "phi": null,
+    "sep": null,
+    "cortinas": null
+   },
+   "MX3": {
+    "Nu": null,
+    "phi": null,
+    "sep": null,
+    "cortinas": null
+   },
+   "MY1": {
+    "Nu": null,
+    "phi": null,
+    "sep": null,
+    "cortinas": null
+   },
+   "MY2": {
+    "Nu": null,
+    "phi": null,
+    "sep": null,
+    "cortinas": null
+   },
+   "MY3": {
+    "Nu": null,
+    "phi": null,
+    "sep": null,
+    "cortinas": null
+   }
+  }
+ },
+ "voladizos": {
+  "columnas": [
+   {
+    "id": "CV1",
+    "b": 20,
+    "h": 20,
+    "H": 2.5,
+    "Q1": 10,
+    "n_barras": 2,
+    "phi": 12,
+    "phi_e": 6
+   }
+  ],
+  "componentes": [
+   {
+    "desc": "Tanque de agua",
+    "Wp": 5,
+    "z": 2.9,
+    "ap": 2.5,
+    "Rp": 3,
+    "Ip": 1
+   }
+  ]
+ },
+ "fundaciones": {
+  "cimientos": [
+   {
+    "id": "M-ext",
+    "q1": 6.140000000000001,
+    "L1": 3,
+    "q2": 0,
+    "L2": 0,
+    "e": 0.18,
+    "h": 2.6,
+    "B": 60,
+    "hc": 70
+   },
+   {
+    "id": "M-int",
+    "q1": 6.140000000000001,
+    "L1": 3,
+    "q2": 6.140000000000001,
+    "L2": 2,
+    "e": 0.18,
+    "h": 2.6,
+    "B": 60,
+    "hc": 70
+   }
+  ],
+  "bases": [
+   {
+    "id": "Z1",
+    "bc": 25,
+    "hc": 25,
+    "Pu": 134.9745,
+    "B": 150,
+    "h": 40,
+    "phi": 12,
+    "sep": 15,
+    "idx": 0
+   },
+   {
+    "id": "Z2",
+    "bc": 30,
+    "hc": 30,
+    "Pu": 156.698,
+    "B": 190,
+    "h": 45,
+    "phi": 12,
+    "sep": 12,
+    "idx": 1
+   }
+  ]
+ }
+}

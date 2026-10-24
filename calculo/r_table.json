@@ -1,0 +1,218 @@
+[
+[
+"1 - Tabiques aislados y acoplados",
+0,
+1.5,
+2.5
+],
+[
+"2 - Pórticos con ductilidad completa",
+7.0,
+5.5,
+3.0
+],
+[
+"3 - Sistema dual Pórtico-Tabique",
+6.0,
+5.0,
+2.5
+],
+[
+"4 - Estructuras con diagonales concéntricas",
+4.0,
+4.0,
+2.5
+],
+[
+"5 - Estructuras rigidizadas con diagonales excéntricas",
+6.0,
+4.0,
+2.5
+],
+[
+"6 - Columnas en voladizo",
+2.5,
+2.5,
+1.5
+],
+[
+"7 - Estructura con ductilidad limitada",
+3.5,
+3.5,
+2.5
+],
+[
+"8 - Encadenada simple (ladrillo macizo)",
+3.0,
+2.3,
+2.5
+],
+[
+"9 - Encadenada armada (ladrillo macizo)",
+3.5,
+2.5,
+2.5
+],
+[
+"10 - Reforzada con armadura distribuida (ladrillo macizo)",
+4.0,
+3.0,
+2.5
+],
+[
+"11 - Sin encadenados (ladrillo macizo)",
+1.5,
+2.0,
+2.0
+],
+[
+"12 - Encadenada simple (bloque cerámico)",
+2.0,
+2.3,
+2.5
+],
+[
+"13 - Encadenada armada (bloque cerámico)",
+2.5,
+2.5,
+2.5
+],
+[
+"14 - Reforzada con armadura distribuida (bloque cerámico)",
+3.0,
+3.0,
+2.5
+],
+[
+"15 - Encadenada simple (bloque de hormigón)",
+2.5,
+2.3,
+2.5
+],
+[
+"16 - Encadenada armada (bloque de hormigón)",
+3.0,
+2.5,
+2.5
+],
+[
+"17 - Reforzada con armadura distribuida (bloque de hormigón)",
+3.5,
+3.0,
+2.5
+],
+[
+"18 - Especiales",
+7.0,
+5.5,
+3.0
+],
+[
+"19 - Intermedios",
+4.5,
+4.0,
+3.0
+],
+[
+"20 - Convencionales",
+3.0,
+3.0,
+3.0
+],
+[
+"21 - Con vigas reticuladas",
+6.0,
+5.5,
+3.0
+],
+[
+"22 - Especiales arriostrados concéntricamente",
+5.0,
+5.5,
+2.0
+],
+[
+"23 - Convencionales arriostrados concéntricamente",
+3.0,
+3.0,
+2.0
+],
+[
+"24 - Arriostrados excéntricamente",
+7.0,
+4.0,
+2.0
+],
+[
+"25 - Pórticos especiales arriostrados concéntricamente",
+6.0,
+5.5,
+2.5
+],
+[
+"26 - Pórticos convencionales arriostrados concéntricamente",
+4.0,
+4.0,
+2.5
+],
+[
+"27 - Pórticos arriostrados excéntricamente",
+7.0,
+4.0,
+2.5
+],
+[
+"28 - Pórticos especiales arriostrados concéntricamente",
+5.0,
+5.0,
+2.5
+],
+[
+"29 - Pórticos convencionales arriostrados concéntricamente",
+3.5,
+3.0,
+2.5
+],
+[
+"30 - Columnas en voladizo",
+2.5,
+2.5,
+1.5
+],
+[
+"31 - Paneles",
+4.0,
+3.0,
+3.0
+],
+[
+"32 - Pórticos",
+3.0,
+3.0,
+2.5
+],
+[
+"33 - Estructuras con tornapuntas",
+3.0,
+3.0,
+2.5
+],
+[
+"34 - Columnas en voladizo",
+2.5,
+2.5,
+2.5
+],
+[
+"35 - Pórticos con diagonales excéntricas",
+5.0,
+4.0,
+2.5
+],
+[
+"36 - Pórticos con diagonales concéntricas",
+4.0,
+5.0,
+2.5
+]
+]

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Axis Ingeniería – Cálculo estructural</title>
+<link rel="stylesheet" href="/static/informe.css">
+<style>
+  :root{--verde:#243fb8;--verde-osc:#2f28aa;--negro:#0b0b0b;--borde:#d1d5db}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--verde);color:#111;min-height:100vh}
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px}
+  header.top h1{margin:0;font-size:22px;color:var(--negro)}
+  nav{margin-top:6px}nav a{display:inline-block;margin-right:8px;padding:5px 12px;border-radius:16px;background:rgba(0,0,0,.08);color:#0b0b0b;text-decoration:none;font-size:13px}nav a.activo{background:#0b0b0b;color:#fff}
+  header.top img.logo{height:58px;width:auto;display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  main{max-width:960px;margin:8px auto 30px;padding:0 16px}
+  .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+  .card h2{margin:0 0 14px;font-size:16px;color:var(--verde-osc)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  label{display:block;font-size:13px;font-weight:bold;margin-bottom:4px}
+  input[type=text],select,textarea{width:100%;padding:9px;border:1px solid var(--borde);border-radius:6px;font:inherit}
+  input[type=text]:focus,select:focus,textarea:focus{outline:2px solid var(--verde);border-color:var(--verde-osc)}
+  textarea{min-height:150px;resize:vertical}
+  .archivos{margin-top:14px}
+  .archivos input{width:100%}
+  .nota{font-size:12px;color:#555;margin:4px 0 0}
+  button{background:var(--negro);color:#fff;border:0;border-radius:8px;padding:11px 22px;font-size:15px;cursor:pointer}
+  button:hover{background:#222}
+  button:disabled{opacity:.55;cursor:wait}
+  button.sec{background:#fff;color:var(--negro);border:1px solid var(--negro)}
+  button.sec:hover{background:#f0fdf8}
+  .fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+  #estado{margin-top:12px;font-size:14px}
+  .error{background:#fee2e2;border:1px solid #fca5a5;color:#7f1d1d;padding:10px 12px;border-radius:6px}
+  .ok{color:var(--verde-osc);font-weight:bold}
+  .aviso{background:#fef9c3;border:1px solid #fde047;padding:8px 12px;border-radius:6px;font-size:13px;margin-top:8px}
+  #resultado{display:none}
+  #vista{border:1px solid var(--borde);border-radius:6px;background:#fff;max-height:640px;overflow:auto}
+  .spinner{display:inline-block;width:14px;height:14px;border:2px solid #cbd5e1;border-top-color:var(--verde-osc);border-radius:50%;animation:g 1s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes g{to{transform:rotate(360deg)}}
+  @media (max-width:560px){header.top h1{font-size:17px}header.top img.logo{height:44px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div><h1>Axis Ingeniería · Cálculo estructural</h1><nav><a href="/">Informes con fotos y audios</a><a class="activo" href="/calculo">Cálculo estructural</a></nav></div>
+  <img class="logo" src="/static/logo.png" alt="Axis Ingeniería + Construcción">
+</header>
+<main>
+  <form id="form" class="card">
+    <h2>1. Planilla de cálculo</h2>
+    <p class="nota" style="margin:0 0 10px">Subí la <b>Planilla Unificada de Cálculo Estructural</b> (.xlsx) con los datos cargados, o un archivo de datos (.json) guardado desde este mismo programa. El bot lee los datos, hace todos los cálculos y arma la memoria de cálculo.</p>
+    <div class="grid">
+      <div><label for="planilla">Planilla (.xlsx) o datos (.json)</label><input type="file" id="planilla" name="planilla" accept=".xlsx,.xlsm,.json"></div>
+      <div><label for="codigo">Código del documento</label><input type="text" id="codigo" name="codigo" placeholder="EI-MC-001"></div>
+      <div><label for="revision">Revisión</label><input type="text" id="revision" name="revision" value="00"></div>
+      <div><label for="fecha">Fecha</label><input type="text" id="fecha" name="fecha" value="{{ hoy }}"></div>
+    </div>
+    <div class="fila" style="margin-top:12px">
+      <label style="font-weight:normal;margin:0"><input type="checkbox" name="usar_ejemplo"> Usar la planilla de EJEMPLO (vivienda)</label>
+      <label style="font-weight:normal;margin:0"><input type="checkbox" name="ia_texto"> Redactar objeto y conclusiones con IA (Gemini)</label>
+    </div>
+    <div class="fila">
+      <button type="submit" id="btn">Calcular y generar informe</button>
+      <a href="/ejemplo-planilla"><button type="button" class="sec">⬇ Descargar planilla de ejemplo</button></a>
+    </div>
+    <div id="estado"></div>
+  </form>
+
+  <section id="resultado" class="card">
+    <h2>2. Resultados</h2>
+    <div id="tablero"></div>
+    <div class="fila" style="margin:12px 0">
+      <a id="lnkDocx" href="#"><button type="button">⬇ Memoria de cálculo (Word)</button></a>
+      <a id="lnkHtml" href="#" target="_blank"><button type="button" class="sec">Abrir versión HTML</button></a>
+      <a id="lnkDatos" href="#"><button type="button" class="sec">⬇ Datos (.json)</button></a>
+      <a id="lnkRes" href="#"><button type="button" class="sec">⬇ Resultados (.json)</button></a>
+      <button type="button" class="sec" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+    <div id="avisos"></div>
+    <p class="nota">Lo resaltado en <mark style="background:#fff200">amarillo</mark> son verificaciones que no cumplen o requieren revisión (y el texto redactado por IA, si se pidió).</p>
+    <div id="vista"></div>
+  </section>
+</main>
+<style>
+  .tab{width:100%;border-collapse:collapse;font-size:14px}.tab th,.tab td{border:1px solid var(--borde);padding:6px 10px;text-align:center}.tab th{background:#d9f2e8}.tab td:first-child{text-align:left}
+  .est-CUMPLE{background:#c6efce;color:#006100;font-weight:bold}.est-NO{background:#ffc7ce;color:#9c0006;font-weight:bold}.est-REV{background:#ffeb9c;color:#7f6000;font-weight:bold}
+  @media print{header.top,form,.fila,nav{display:none}body{background:#fff}.card{box-shadow:none;border:0}}
+</style>
+<script>
+const $ = (s) => document.querySelector(s);
+function estado(html, clase){ $('#estado').innerHTML = html ? `<div class="${clase||''}">${html}</div>` : ''; }
+function cls(e){ return e==='CUMPLE'?'est-CUMPLE':(e==='NO CUMPLE'?'est-NO':(e==='–'?'':'est-REV')); }
+function mostrar(j){
+  let t='<table class="tab"><thead><tr><th>Módulo</th><th>Verificaciones</th><th>Cumple</th><th>No cumple</th><th>Revisar</th><th>Estado</th></tr></thead><tbody>';
+  j.resumen.forEach(m=>{ t+=`<tr><td>${m.modulo}</td><td>${m.total}</td><td>${m.cumple}</td><td>${m.no}</td><td>${m.revisar}</td><td class="${cls(m.estado)}">${m.estado}</td></tr>`; });
+  $('#tablero').innerHTML=t+'</tbody></table>';
+  $('#avisos').innerHTML=(j.avisos||[]).map(a=>`<div class="aviso">${a}</div>`).join('');
+  $('#vista').innerHTML=j.html; $('#lnkDocx').href=j.docx; $('#lnkHtml').href=j.htmlfile; $('#lnkDatos').href=j.datos_json; $('#lnkRes').href=j.resultados_json;
+  $('#resultado').style.display='block';
+}
+$('#form').addEventListener('submit', async (e)=>{
+  e.preventDefault(); const b=$('#btn'); b.disabled=true;
+  estado('<span class="spinner"></span>Leyendo la planilla y calculando…');
+  try{
+    const r=await fetch('/calcular',{method:'POST',body:new FormData($('#form'))}); const j=await r.json();
+    if(!j.ok){ estado(j.error,'error'); return; }
+    estado('Listo ✔','ok'); mostrar(j); $('#resultado').scrollIntoView({behavior:'smooth'});
+  }catch(err){ estado('No se pudo conectar con el programa. ¿Sigue abierto app.py? '+err,'error'); }
+  finally{ b.disabled=false; }
+});
+</script>
+</body>
+</html>
